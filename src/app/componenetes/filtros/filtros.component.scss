@@ -1,0 +1,17 @@
+.contenedor-principal {
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr 50px;
+  background-color: rgba(255, 255, 255, 0.863);
+  border-radius: 5px;
+  padding: 5px 10px;
+  .contenedor-inputs {
+    height: 100%;
+    background-color: rgba(245, 245, 245, 0.712);
+    padding: 5px;
+    border-radius: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}

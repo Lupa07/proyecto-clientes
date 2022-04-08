@@ -1,0 +1,52 @@
+.contenedor-general{
+    height: 100%;
+    display: grid;
+    grid-template-rows: 300px 1fr ;
+    grid-template-areas: "datosMod" "contTabla";
+    border: 3px solid black;
+
+    .datos-modif{
+        height: 100%;
+        grid-area: datosMod;
+        display: grid;
+        grid-template-columns: 1fr 1fr  ;
+        grid-template-areas:"inputs datos";
+        border: 3px solid black;
+
+        .contenedor-inputs{
+
+            height: 100%;
+            grid-area: inputs;
+            border: 3px solid black;
+        }
+
+        .contenedor-datos{
+            height: 100%;
+            grid-area:datos;
+            border: 3px solid black;
+        }
+
+    }
+
+    .contenedor-tabla{
+
+        height: 100%;
+        border: 3px solid black;
+        grid-area: contTabla;
+        display: grid;
+        grid-template-rows: 1fr 40px;
+        grid-template-areas: "tabla" "pag";
+
+        .tabla{
+            
+            height: 100%;
+            grid-area: tabla;
+            border: 3px solid black;
+        }
+        .contenedor-paginacion{
+            height: 100%;
+            grid-area: pag;
+            border: 3px solid black;
+        }
+    }
+}
