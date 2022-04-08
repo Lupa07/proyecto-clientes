@@ -9,7 +9,44 @@
     </div>
     <div class="contenedor-tabla">
         <div class="tabla">
-            <h3>Tabla de clientes</h3>
+            <table class="contenido-tabla">
+                <tr>
+                    <td>Id Cliente</td>
+                    <td>Activo</td>
+                    <td>Numero</td>
+                    <td>Alias</td>
+                    <td>Razon Social</td>
+                    <td>Direccion</td>
+                    <td>Poblacion</td>
+                    <td>Provincia</td>
+                    <td>Telefono</td>
+                    <td>Comercial</td>
+                    <td>Documento</td>
+                    <td>Email</td>
+                    <td>Codigo Postal</td>
+                    <td>Localidad</td>
+                    
+                </tr>
+                <tr *ngFor="let item of datos">
+                    <td>{{item.idcliente}}</td>
+                    <td>{{item.activo}}</td>
+                    <td>{{item.numero}}</td>
+                    <td>{{item.alias}}</td>
+                    <td>{{item.razon_social}}</td>
+                    <td>{{item.direccion}}</td>
+                    <td>{{item.poblacion}}</td>
+                    <td>{{item.provincia}}</td>
+                    <td>{{item.telefono}}</td>
+                    <td>{{item.comercial}}</td>
+                    <td>{{item.documento}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.cp}}</td>
+                    <td>{{item.localidad}}</td>
+
+
+
+                </tr>
+            </table>
         </div>
         <div class="contenedor-paginacion">
             <p>paginacion</p>

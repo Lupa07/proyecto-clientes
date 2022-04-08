@@ -39,8 +39,15 @@
         .tabla{
             
             height: 100%;
+            width: 100%;
             grid-area: tabla;
             border: 3px solid black;
+
+            .contenido-tabla{
+                border:1px;
+                height: 100%;
+            width: 100%;
+            }
         }
         .contenedor-paginacion{
             height: 100%;
