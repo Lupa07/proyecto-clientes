@@ -3,7 +3,7 @@
     display: grid;
     grid-template-rows: 300px 1fr ;
     grid-template-areas: "datosMod" "contTabla";
-    border: 3px solid black;
+    
 
     .datos-modif{
         height: 100%;
@@ -11,8 +11,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr  ;
         grid-template-areas:"inputs datos";
-        border: 3px solid black;
-
+        
         .contenedor-inputs{
 
             height: 100%;
@@ -31,7 +30,7 @@
     .contenedor-tabla{
 
         height: 100%;
-        border: 3px solid black;
+       
         grid-area: contTabla;
         display: grid;
         grid-template-rows: 1fr 40px;
