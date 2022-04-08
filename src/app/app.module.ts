@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -6,6 +7,8 @@ import { AppComponent } from './app.component';
 import { CabeceraComponent } from './componenetes/cabecera/cabecera.component';
 import { FiltrosComponent } from './componenetes/filtros/filtros.component';
 import { MostrarDatosComponent } from './componenetes/mostrar-datos/mostrar-datos.component';
+import { DatosService } from './services/datos.service';
+
 
 @NgModule({
   declarations: [
@@ -16,9 +19,10 @@ import { MostrarDatosComponent } from './componenetes/mostrar-datos/mostrar-dato
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
