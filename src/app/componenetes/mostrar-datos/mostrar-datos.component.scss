@@ -1,29 +1,51 @@
 .contenedor-general {
   height: 100%;
   display: grid;
-  grid-template-rows: 300px 1fr;
+  grid-template-rows: 250px 1fr;
   grid-template-areas: "datosMod" "contTabla";
-
+  .titulo {
+    text-align: center;
+  }
   .datos-modif {
     height: 100%;
     grid-area: datosMod;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "inputs datos";
+    align-items: center;
 
     .contenedor-inputs {
       height: 100%;
       grid-area: inputs;
-      border: 3px solid black;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem;
+      gap: 0.5rem;
+
+      .seccion {
+        display: flex;
+        gap: 0.5rem;
+        
+      }
     }
 
     .contenedor-datos {
+      padding: 0.5rem;
       height: 100%;
       grid-area: datos;
-      border: 3px solid black;
+      gap: 0.5rem;
+      
     }
   }
-
+  textarea {
+    height: 100px;
+    margin-top: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-family: "Comic Sans MS";
+    background-color: #ffd255;
+  }
   .contenedor-tabla {
     height: 100%;
 
@@ -38,20 +60,37 @@
       width: 100%;
       padding: 5px;
       grid-area: tabla;
-      border: 3px solid black;
+
       overflow-y: auto;
 
       .contenido-tabla {
         border: 1px;
         height: 100%;
         width: 100%;
-        
+        overflow-y: hidden;
+
+        .cabecera-tabla {
+          border-bottom: 2px gray solid;
+          text-align: center;
+          th {
+            padding: 12px;
+          }
+        }
+        .clientes-api {
+          overflow-y: auto;
+          .centro {
+            text-align: center;
+          }
+        }
+        .clientes-api:hover {
+          background-color: rgba(252, 218, 177, 0.671);
+        }
       }
     }
     .contenedor-paginacion {
       height: 100%;
       grid-area: pag;
-      border: 3px solid black;
+      border-top: 2px gray solid;
     }
   }
 }

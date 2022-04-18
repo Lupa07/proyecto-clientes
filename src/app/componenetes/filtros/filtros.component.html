@@ -1,14 +1,15 @@
 <div class="contendor-principal">
-  <div class="contenedor-inputs">
-    <label for="cliente">Cliente:</label>
+  <div class="contenedor-idCliente">
+    <label for="cliente">Numero Cliente:</label>
     <div class="contenedor-cliente">
       <div class="input-group mb-3">
         <input
           type="text"
           class="form-control"
-          placeholder="Cliente"
+          placeholder="Numero Cliente"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
+          [(ngModel)]="filtro.numCliente"
           #Name
         />
         <div class="input-group-append">
@@ -20,6 +21,95 @@
             X
           </button>
         </div>
+      </div>
+      <label for="cliente">Alias Cliente:</label>
+
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Alias Cliente"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+          #alias
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-danger vaciar"
+            type="button"
+            (click)="alias.value = ''"
+          >
+            X
+          </button>
+        </div>
+      </div>
+      <label for="cliente">Provincia:</label>
+
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Numero Cliente"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+          #provincia
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-danger vaciar"
+            type="button"
+            (click)="provincia.value = ''"
+          >
+            X
+          </button>
+        </div>
+      </div>
+      <label for="cliente">Documento:</label>
+
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Documento Cliente"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+          #doc
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-danger vaciar"
+            type="button"
+            (click)="doc.value = ''"
+          >
+            X
+          </button>
+        </div>
+      </div>
+
+      <label for="cliente">Activo:</label>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="0 | 1"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+          #activo
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-danger vaciar"
+            type="button"
+            (click)="activo.value = ''"
+          >
+            X
+          </button>
+        </div>
+      </div>
+      <div class="buscar">
+        <button type="submit" class="btn btn-primary btn-lg boton_Buscar">
+          Buscar
+        </button>
       </div>
     </div>
   </div>

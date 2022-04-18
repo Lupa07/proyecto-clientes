@@ -17,11 +17,19 @@ export class DatosService {
 
         this.cabecera = { 'X-Auth': token }
     }
+    public filtrado = {
+        'numCliente': '',
+        'alias': '',
+        'provincia': '',
+        'documento': '',
+        'activo:boolean': false
+    }
+    
 
     getCliente(parametros: any): Observable<any> {
         const filtros = {
             alias: '',
-            activo: 1,
+            //activo: 1,
             provincia: '',
             documento: '',
             codigo: ''

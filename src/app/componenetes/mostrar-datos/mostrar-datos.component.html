@@ -1,53 +1,170 @@
 <div class="contenedor-general">
-    <div class="datos-modif">
-        <div class="contenedor-inputs">
-                <h3>Inputs para modificar datos</h3>
-        </div>
-        <div class="contenedor-datos">
-            <h3>Datos del cliente seleccionado</h3>
-        </div>
+  <div class="datos-modif">
+    <div class="contenedor-inputs">
+      <div class="titulo">
+        <h4>Datos del cliente</h4>
+      </div>
+
+      <div class="seccion">
+        <input
+          type="text"
+          class="form-control id-cliente"
+          placeholder="{{ datoSeleccionado.idcliente }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+
+        <input
+          type="text"
+          class="form-control numero"
+          placeholder="{{ datoSeleccionado.numero }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <input
+          type="text"
+          class="form-control alias"
+          placeholder="{{ datoSeleccionado.alias }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <input
+          type="text"
+          class="form-control nombre"
+          placeholder="{{ datoSeleccionado.nombre }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+      </div>
+      <div class="seccion">
+        <input
+          type="text"
+          class="form-control email"
+          placeholder="{{ datoSeleccionado.email }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+
+        <input
+          type="text"
+          class="form-control poblacion"
+          placeholder="{{ datoSeleccionado.poblacion }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+      </div>
+      <div class="seccion">
+        <input
+          type="text"
+          class="form-control documento"
+          placeholder="{{ datoSeleccionado.documento }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <input
+          type="text"
+          class="form-control direccion"
+          placeholder="{{ datoSeleccionado.direccion }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+
+        <input
+          type="text"
+          class="form-control raz-social"
+          placeholder="{{ datoSeleccionado.razon_social }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <input
+          type="text"
+          class="form-control provincia"
+          placeholder="{{ datoSeleccionado.provincia }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+      </div>
+      <div class="seccion">
+        <input
+          type="text"
+          class="form-control cp"
+          placeholder="{{ datoSeleccionado.cp }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <input
+          type="text"
+          class="form-control localidad"
+          placeholder="{{ datoSeleccionado.localidad }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <input
+          type="text"
+          class="form-control telefono"
+          placeholder="{{ datoSeleccionado.telefono }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <input
+          type="text"
+          class="form-control comercial"
+          placeholder="{{ datoSeleccionado.comercial }}"
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+      </div>
     </div>
-    <div class="contenedor-tabla">
-        <div class="tabla">
-            <table class="contenido-tabla">
-                <tr>
-                    <th>Id Cliente</th>
-                    <th>Activo</th>
-                    <th>Numero</th>
-                    <th>Alias</th>
-                    <th>Direccion</th>
-                    <th>Poblacion</th>
-                    <th>Provincia</th>
-                    <th>Telefono</th>
-                    <th>Comercial</th>
-                    <th>Documento</th>
-                    <th>Email</th>
-                    <th>Codigo Postal</th>
-                    <th>Localidad</th>
-                    
-                </tr>
-                <tr *ngFor="let item of datos">
-                    <td>{{item.idcliente}}</td>
-                    <td>{{item.activo}}</td>
-                    <td>{{item.numero}}</td>
-                    <td>{{item.alias}}</td>
-                    <td>{{item.direccion}}</td>
-                    <td>{{item.poblacion}}</td>
-                    <td>{{item.provincia}}</td>
-                    <td>{{item.telefono}}</td>
-                    <td>{{item.comercial}}</td>
-                    <td>{{item.documento}}</td>
-                    <td>{{item.email}}</td>
-                    <td>{{item.cp}}</td>
-                    <td>{{item.localidad}}</td>
-
-
-
-                </tr>
-            </table>
-        </div>
-        <div class="contenedor-paginacion">
-            <p>paginacion</p>
-        </div>
+    <div class="contenedor-datos">
+      <div class="titulo">
+        <h4>Notas</h4>
+      </div>
+      <textarea
+        class="form-control notas"
+        placeholder="{{ datoSeleccionado.notas }}"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+      ></textarea>
     </div>
+  </div>
+
+  <div class="contenedor-tabla">
+    <div class="tabla">
+      <table class="contenido-tabla">
+        <tr class="cabecera-tabla">
+          <th>Id Cliente</th>
+          <th>Numero</th>
+          <th>Alias</th>
+          <th>Direccion</th>
+          <th>Poblacion</th>
+          <th>Provincia</th>
+          <th>Telefono</th>
+          <th>Comercial</th>
+          <th>Documento</th>
+          <th>Email</th>
+          <th>Localidad</th>
+        </tr>
+        <tr
+          *ngFor="let item of datos; let x = index"
+          class="clientes-api"
+          (click)="mostrarSeleccionado(x)"
+        >
+          <td class="centro">{{ item.idcliente }}</td>
+          <td class="centro">{{ item.numero }}</td>
+          <td>{{ item.alias }}</td>
+          <td>{{ item.direccion }}</td>
+          <td>{{ item.poblacion }}</td>
+          <td>{{ item.provincia }}</td>
+          <td>{{ item.telefono }}</td>
+          <td>{{ item.comercial }}</td>
+          <td>{{ item.documento }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.localidad }}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="contenedor-paginacion">
+      <p>paginacion</p>
+    </div>
+  </div>
 </div>

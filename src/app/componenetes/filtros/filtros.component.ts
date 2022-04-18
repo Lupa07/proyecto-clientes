@@ -11,5 +11,9 @@ export class FiltrosComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  filtro:any={
+    'numCliente':'',
+
+  }
 
 }
