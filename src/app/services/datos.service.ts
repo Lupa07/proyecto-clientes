@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
-import { Cliente } from "../models/cliente.model";
+
 
 @Injectable()
 export class DatosService {
@@ -13,7 +13,7 @@ export class DatosService {
 
 
     constructor(private http: HttpClient) {
-        let token = 'CA87F594A5169DC4CCAFB8DA22F4CDADC2CBD94BE24500EC01726599793CA28951D8EF996E5834CB00A756B00A5C5BAC';
+        let token = '65287275e193138e2630933e8ff28b7938e45d4f73919f97d79676273f163db40b3a1d59e6b8089642de5e62dfb338ba';
 
         this.cabecera = { 'X-Auth': token }
     }
@@ -24,7 +24,7 @@ export class DatosService {
             activo: 1,
             provincia: '',
             documento: '',
-            codigo: '123.10'
+            codigo: ''
         }
         return this.http.get<any>('https://www.azurglobal.es/apiPracticas/clientes/', { headers: this.cabecera, params: filtros });
     }

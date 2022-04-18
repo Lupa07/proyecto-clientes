@@ -1,58 +1,57 @@
-.contenedor-general{
+.contenedor-general {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 300px 1fr;
+  grid-template-areas: "datosMod" "contTabla";
+
+  .datos-modif {
     height: 100%;
+    grid-area: datosMod;
     display: grid;
-    grid-template-rows: 300px 1fr ;
-    grid-template-areas: "datosMod" "contTabla";
-    
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "inputs datos";
 
-    .datos-modif{
+    .contenedor-inputs {
+      height: 100%;
+      grid-area: inputs;
+      border: 3px solid black;
+    }
+
+    .contenedor-datos {
+      height: 100%;
+      grid-area: datos;
+      border: 3px solid black;
+    }
+  }
+
+  .contenedor-tabla {
+    height: 100%;
+
+    grid-area: contTabla;
+    display: grid;
+    grid-template-rows: 1fr 40px;
+    grid-template-areas: "tabla" "pag";
+    overflow: hidden;
+
+    .tabla {
+      height: 100%;
+      width: 100%;
+      padding: 5px;
+      grid-area: tabla;
+      border: 3px solid black;
+      overflow-y: auto;
+
+      .contenido-tabla {
+        border: 1px;
         height: 100%;
-        grid-area: datosMod;
-        display: grid;
-        grid-template-columns: 1fr 1fr  ;
-        grid-template-areas:"inputs datos";
+        width: 100%;
         
-        .contenedor-inputs{
-
-            height: 100%;
-            grid-area: inputs;
-            border: 3px solid black;
-        }
-
-        .contenedor-datos{
-            height: 100%;
-            grid-area:datos;
-            border: 3px solid black;
-        }
-
+      }
     }
-
-    .contenedor-tabla{
-
-        height: 100%;
-       
-        grid-area: contTabla;
-        display: grid;
-        grid-template-rows: 1fr 40px;
-        grid-template-areas: "tabla" "pag";
-
-        .tabla{
-            
-            height: 100%;
-            width: 100%;
-            grid-area: tabla;
-            border: 3px solid black;
-
-            .contenido-tabla{
-                border:1px;
-                height: 100%;
-            width: 100%;
-            }
-        }
-        .contenedor-paginacion{
-            height: 100%;
-            grid-area: pag;
-            border: 3px solid black;
-        }
+    .contenedor-paginacion {
+      height: 100%;
+      grid-area: pag;
+      border: 3px solid black;
     }
+  }
 }
