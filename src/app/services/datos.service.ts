@@ -2,19 +2,26 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { Cliente } from "../models/cliente.model";
+import * as CryptoJS from 'crypto-js';
 
 
 @Injectable()
 export class DatosService {
     private url: string = 'https://www.azurglobal.es/apiPracticas/clientes/';
     private cabecera: any = {};
-
+    private nombre: string = 'JOAQUIN';
+    private fecha:Date = new Date (Date.now());
 
 
 
 
     constructor(private http: HttpClient) {
-        let token = '8c260a1762e14b095327ce5de2692cca6d2dd3dc758bbfff32f9d4a65fd9992ca61a61e148b7a90af7ba1a6c0adcb4bc';
+        
+        let dia = this.fecha.getDate() < 9 ? '0'+this.fecha.getDate() : this.fecha.getDate();
+        let mes = this.fecha.getMonth() < 9 ? '0'+(this.fecha.getMonth()+1) : this.fecha.getMonth()+1;
+        let year = this.fecha.getFullYear();
+        let cadenalista = this.nombre+year+mes+dia;
+        let token = CryptoJS.SHA384(cadenalista).toString();
 
         this.cabecera = { 'X-Auth': token }
     }
