@@ -6,6 +6,7 @@
   background-color: rgba(255, 255, 255, 0.863);
   border-radius: 5px;
   padding: 5px 10px;
+  overflow-y: auto;
   .contenedor-inputs {
     height: 100%;
     background-color: rgba(245, 245, 245, 0.712);
@@ -14,4 +15,13 @@
     overflow-y: auto;
     overflow-x: hidden;
   }
+}
+.buscar{
+  display: flex;
+      justify-content: right;
+      align-items: flex-end;
+
+      .boton_Buscar {
+        width: 100%;
+      }
 }

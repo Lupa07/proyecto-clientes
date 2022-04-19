@@ -112,7 +112,7 @@
           placeholder="{{ datoSeleccionado.comercial }}"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-        />
+        >
       </div>
     </div>
     <div class="contenedor-datos">
@@ -125,46 +125,50 @@
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"
       ></textarea>
+      <div class="botones">
+        <button type="button" class="btn btn-success">Crear  👤</button>
+        <button type="button" class="btn btn-warning">Modificar  🖌 </button>
+        <button type="button" class="btn btn-danger">Borrar  🗑</button>
+      </div>
     </div>
   </div>
 
   <div class="contenedor-tabla">
     <div class="tabla">
       <table class="contenido-tabla">
-        <tr class="cabecera-tabla">
-          <th>Id Cliente</th>
-          <th>Numero</th>
-          <th>Alias</th>
-          <th>Direccion</th>
-          <th>Poblacion</th>
-          <th>Provincia</th>
-          <th>Telefono</th>
-          <th>Comercial</th>
-          <th>Documento</th>
-          <th>Email</th>
-          <th>Localidad</th>
-        </tr>
-        <tr
-          *ngFor="let item of datos; let x = index"
-          class="clientes-api"
-          (click)="mostrarSeleccionado(x)"
-        >
-          <td class="centro">{{ item.idcliente }}</td>
-          <td class="centro">{{ item.numero }}</td>
-          <td>{{ item.alias }}</td>
-          <td>{{ item.direccion }}</td>
-          <td>{{ item.poblacion }}</td>
-          <td>{{ item.provincia }}</td>
-          <td>{{ item.telefono }}</td>
-          <td>{{ item.comercial }}</td>
-          <td>{{ item.documento }}</td>
-          <td>{{ item.email }}</td>
-          <td>{{ item.localidad }}</td>
-        </tr>
+        <thead>
+          <tr class="cabecera-tabla">
+            <th class="numero">Numero</th>
+            <th class="alias">Alias</th>
+            <th class="direccion">Direccion</th>
+
+            <th class="provincia">Provincia</th>
+            <th class="telefono">Telefono</th>
+            <th class="comercial">Comercial</th>
+            <th class="documento">Documento</th>
+            <th class="email">Email</th>
+          </tr>
+        </thead>
+        <tbody id="cuerpo_tabla">
+          <tr
+            *ngFor="let item of miServ.clientes |slice:(currentPage-1)*numero_elementos: currentPage*numero_elementos ; let x = index"
+            class="clientes-api"
+            (click)="mostrarSeleccionado(x)"
+          >
+            <td class="centro">{{ item.numero }}</td>
+            <td class="text-truncate">{{ item.alias }}</td>
+            <td class="text-truncate">{{ item.direccion }}</td>
+            <td>{{ item.provincia }}</td>
+            <td>{{ item.telefono }}</td>
+            <td>{{ item.comercial }}</td>
+            <td>{{ item.documento }}</td>
+            <td>{{ item.email }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
-    <div class="contenedor-paginacion">
-      <p>paginacion</p>
+    <div class="paginacion">
+      <pagination [totalItems]="miServ.clientes.length" [itemsPerPage]=numero_elementos [maxSize]="7" [(ngModel)]="currentPage"></pagination>
     </div>
   </div>
 </div>

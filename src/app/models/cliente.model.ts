@@ -1,7 +1,7 @@
 import { DatosService } from "../services/datos.service";
 
 export class Cliente{
-    public idcliente:string;
+    public idcliente:number;
     public activo:string;
     public numero:string;
     public nombre:string;

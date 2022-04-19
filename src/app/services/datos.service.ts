@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
+import { Cliente } from "../models/cliente.model";
 
 
 @Injectable()
@@ -13,29 +14,37 @@ export class DatosService {
 
 
     constructor(private http: HttpClient) {
-        let token = '65287275e193138e2630933e8ff28b7938e45d4f73919f97d79676273f163db40b3a1d59e6b8089642de5e62dfb338ba';
+        let token = '8c260a1762e14b095327ce5de2692cca6d2dd3dc758bbfff32f9d4a65fd9992ca61a61e148b7a90af7ba1a6c0adcb4bc';
 
         this.cabecera = { 'X-Auth': token }
     }
-    public filtrado = {
-        'numCliente': '',
-        'alias': '',
-        'provincia': '',
-        'documento': '',
-        'activo:boolean': false
-    }
     
+    clientes:Cliente[]=[];
+    filtros = {
+        alias: '',
+        activo: '',
+        provincia: '',
+        documento: '',
+        codigo: ''
+    }
 
     getCliente(parametros: any): Observable<any> {
-        const filtros = {
-            alias: '',
-            //activo: 1,
-            provincia: '',
-            documento: '',
-            codigo: ''
-        }
-        return this.http.get<any>('https://www.azurglobal.es/apiPracticas/clientes/', { headers: this.cabecera, params: filtros });
+        
+        return this.http.get<any>('https://www.azurglobal.es/apiPracticas/clientes/', { headers: this.cabecera, params: parametros });
     }
+
+    
+    // buscar() {
+        
+    
+    //     this.getCliente(this.filtros).subscribe(
+    //       (data)=>{console.log(data);this.clientes=data.data},
+    //       (error)=>{alert("Los datos no han podido cargarse");}
+    //     )
+    
+        
+        
+    //   }
 
 
 

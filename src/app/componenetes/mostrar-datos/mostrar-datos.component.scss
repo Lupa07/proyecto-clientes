@@ -36,12 +36,20 @@
       grid-area: datos;
       gap: 0.5rem;
       
+      .botones{
+        display: grid;
+        margin-top: 20px;
+        gap:40px;
+        justify-content: center;
+        grid-template-columns: 150px 150px 150px;
+      }
     }
   }
   textarea {
     height: 100px;
     margin-top: 15px;
-    max-height: 200px;
+    max-height: 120px;
+    min-height: 120px;
     overflow-y: auto;
     font-family: "Comic Sans MS";
     background-color: #ffd255;
@@ -53,31 +61,51 @@
     display: grid;
     grid-template-rows: 1fr 40px;
     grid-template-areas: "tabla" "pag";
-    overflow: hidden;
+    overflow-y: hidden;
 
     .tabla {
       height: 100%;
-      width: 100%;
+      
+      min-width: 1398px;
       padding: 5px;
       grid-area: tabla;
 
-      overflow-y: auto;
-
+      overflow-y: hidden;
+      overflow-x: auto;
       .contenido-tabla {
         border: 1px;
         height: 100%;
-        width: 100%;
+        
+        
         overflow-y: hidden;
-
-        .cabecera-tabla {
-          border-bottom: 2px gray solid;
-          text-align: center;
-          th {
-            padding: 12px;
+        display: flex;
+        flex-direction: column;
+        
+        tr{
+          display: grid;
+          grid-template-columns: 100px 200px 300px 150px 100px 100px 100px 1fr;
+          
+          th, td{
+            display: flex;
+            justify-content: left;
+            padding-left: 5px;
           }
         }
-        .clientes-api {
+       thead {
+          border-bottom: 2px gray solid;
+          text-align: center;
+          height: 40px;
+          
+          
+        }
+        tbody{
+          height: 100%;
           overflow-y: auto;
+          overflow-x: hidden;
+        }
+        .clientes-api {
+          
+          height: 30px;
           .centro {
             text-align: center;
           }
@@ -87,7 +115,7 @@
         }
       }
     }
-    .contenedor-paginacion {
+    .paginacion {
       height: 100%;
       grid-area: pag;
       border-top: 2px gray solid;

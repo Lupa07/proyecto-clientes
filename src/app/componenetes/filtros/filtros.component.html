@@ -1,7 +1,7 @@
 <div class="contendor-principal">
   <div class="contenedor-idCliente">
-    <label for="cliente">Numero Cliente:</label>
     <div class="contenedor-cliente">
+      <label for="cliente">Numero Cliente:</label>
       <div class="input-group mb-3">
         <input
           type="text"
@@ -9,14 +9,14 @@
           placeholder="Numero Cliente"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-          [(ngModel)]="filtro.numCliente"
-          #Name
+          [(ngModel)]="numCliente"
+          #Nam
         />
         <div class="input-group-append">
           <button
             class="btn btn-outline-danger vaciar"
             type="button"
-            (click)="Name.value = ''"
+            (click)="Nam.value = ''"
           >
             X
           </button>
@@ -31,13 +31,14 @@
           placeholder="Alias Cliente"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-          #alias
+          [(ngModel)]="alias"
+          #alia
         />
         <div class="input-group-append">
           <button
             class="btn btn-outline-danger vaciar"
             type="button"
-            (click)="alias.value = ''"
+            (click)="alia.value = ''"
           >
             X
           </button>
@@ -49,16 +50,17 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Numero Cliente"
+          placeholder="Provincia"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-          #provincia
+          [(ngModel)]="provincia"
+          #provin
         />
         <div class="input-group-append">
           <button
             class="btn btn-outline-danger vaciar"
             type="button"
-            (click)="provincia.value = ''"
+            (click)="provin.value = ''"
           >
             X
           </button>
@@ -73,6 +75,7 @@
           placeholder="Documento Cliente"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
+          [(ngModel)]="documento"
           #doc
         />
         <div class="input-group-append">
@@ -94,23 +97,28 @@
           placeholder="0 | 1"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-          #activo
+          [(ngModel)]="activo"
+          #activ
         />
         <div class="input-group-append">
           <button
             class="btn btn-outline-danger vaciar"
             type="button"
-            (click)="activo.value = ''"
+            (click)="activ.value = ''"
           >
             X
           </button>
         </div>
       </div>
-      <div class="buscar">
-        <button type="submit" class="btn btn-primary btn-lg boton_Buscar">
-          Buscar
-        </button>
-      </div>
     </div>
+  </div>
+  <div class="buscar">
+    <button
+      type="submit"
+      class="btn btn-primary btn-lg boton_Buscar"
+      (click)="buscar()"
+    >
+      Buscar
+    </button>
   </div>
 </div>
