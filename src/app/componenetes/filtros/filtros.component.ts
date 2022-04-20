@@ -19,17 +19,18 @@ export class FiltrosComponent implements OnInit {
   alias: string = '';
   provincia: string = '';
   documento: string = '';
-  activo: string = ''
+  activoB: boolean = true
 
 
 
   buscar() {
+    
     let filtro = {
       codigo: this.numCliente,
       alias: this.alias,
       provincia: this.provincia,
       documento: this.documento,
-      activo: this.activo
+      activo: this.activoB ? 1:0
 
     }
 

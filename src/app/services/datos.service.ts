@@ -41,19 +41,8 @@ export class DatosService {
     }
 
     
-    // buscar() {
-        
+
     
-    //     this.getCliente(this.filtros).subscribe(
-    //       (data)=>{console.log(data);this.clientes=data.data},
-    //       (error)=>{alert("Los datos no han podido cargarse");}
-    //     )
     
-        
-        
-    //   }
-
-
-
 
 }

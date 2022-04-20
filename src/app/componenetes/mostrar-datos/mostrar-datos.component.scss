@@ -10,7 +10,7 @@
     height: 100%;
     grid-area: datosMod;
     display: grid;
-    grid-template-columns: 900px 1fr;
+    grid-template-columns: 1fr 400px;
     grid-template-areas: "inputs datos";
     align-items: center;
 
@@ -23,6 +23,13 @@
       padding: 0.5rem;
       gap: 0.5rem;
 
+      .btn{
+        background-color: #f700008a;
+
+      }
+      .btn:hover{
+        background-color: #f70000;
+      }
       
 
       .seccion {
@@ -31,35 +38,39 @@
         width: 100%;
 
         .id-cliente{
-          width: 75px;
+          width: 80px;
         }
         .numero{
-          width: 75px;
+          width: 90px;
         }
-        .alias{
-          width: 270px;
+        .cont-alias{
+          width: 100%;
         }
-        .nombre{
-          width: 400px;
+        .cont-nombre{
+          width: 100%;
         }
         .email{
           width: 375px;
         }
-        
+        .cont-direccion{
+          width: 100%;
+        }
+       
         .documento{
           width: 125px;
         }
-        .direccion{
-          width: 400px;
-        }
-        .raz-social{
-          width: 325px;
+        
+        .cont-raz-social{
+          width: 100%;
         }
         .cp{
-          width: 100px;
+          width: 125px;
         }
-        .localidad{
-          width: 250px;
+        .cont-localidad{
+          width: 100%;
+        }
+        .check{
+          padding-top: 8px;
         }
       }
     }
@@ -71,11 +82,13 @@
       gap: 0.5rem;
       
       .botones{
-        display: grid;
+        display: flex;
+        flex-direction: column;
         margin-top: 20px;
-        gap:40px;
+        gap:10px;
         justify-content: center;
-        grid-template-columns: 150px 150px 150px;
+       
+       
       }
     }
   }

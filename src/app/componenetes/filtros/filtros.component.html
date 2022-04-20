@@ -1,117 +1,108 @@
-<div class="contendor-principal">
-  <div class="contenedor-idCliente">
-    <div class="contenedor-cliente">
-      <label for="cliente">Numero Cliente:</label>
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Numero Cliente"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-          [(ngModel)]="numCliente"
-          #Nam
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-danger vaciar"
-            type="button"
-            (click)="Nam.value = ''"
-          >
-            X
-          </button>
-        </div>
-      </div>
-      <label for="cliente">Alias Cliente:</label>
-
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Alias Cliente"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-          [(ngModel)]="alias"
-          #alia
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-danger vaciar"
-            type="button"
-            (click)="alia.value = ''"
-          >
-            X
-          </button>
-        </div>
-      </div>
-      <label for="cliente">Provincia:</label>
-
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Provincia"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-          [(ngModel)]="provincia"
-          #provin
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-danger vaciar"
-            type="button"
-            (click)="provin.value = ''"
-          >
-            X
-          </button>
-        </div>
-      </div>
-      <label for="cliente">Documento:</label>
-
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Documento Cliente"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-          [(ngModel)]="documento"
-          #doc
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-danger vaciar"
-            type="button"
-            (click)="doc.value = ''"
-          >
-            X
-          </button>
-        </div>
-      </div>
-
-      <label for="cliente">Activo:</label>
-      <div class="input-group mb-3">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="0 | 1"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-          [(ngModel)]="activo"
-          #activ
-        />
-        <div class="input-group-append">
-          <button
-            class="btn btn-outline-danger vaciar"
-            type="button"
-            (click)="activ.value = ''"
-          >
-            X
-          </button>
-        </div>
+<div class="contenedor-principal">
+  <div class="contenedor-cliente">
+    <label for="cliente">Numero Cliente:</label>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Numero Cliente"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+        [(ngModel)]="numCliente"
+        #Nam
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-danger vaciar"
+          type="button"
+          (click)="Nam.value = ''"
+        >
+          X
+        </button>
       </div>
     </div>
+    <label for="cliente">Alias Cliente:</label>
+
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Alias Cliente"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+        [(ngModel)]="alias"
+        #alia
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-danger vaciar"
+          type="button"
+          (click)="alia.value = ''"
+        >
+          X
+        </button>
+      </div>
+    </div>
+    <label for="cliente">Provincia:</label>
+
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Provincia"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+        [(ngModel)]="provincia"
+        #provin
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-danger vaciar"
+          type="button"
+          (click)="provin.value = ''"
+        >
+          X
+        </button>
+      </div>
+    </div>
+    <label for="cliente">Documento:</label>
+
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Documento Cliente"
+        aria-label="Recipient's username"
+        aria-describedby="basic-addon2"
+        [(ngModel)]="documento"
+        #doc
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-danger vaciar"
+          type="button"
+          (click)="doc.value = ''"
+        >
+          X
+        </button>
+      </div>
+    </div>
+
+    <label for="cliente">Activo:</label>
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="flexSwitchCheckChecked"
+        checked
+        [(ngModel)]="activoB"
+      />
+      <label class="form-check-label" for="flexSwitchCheckChecked"
+        >ACTIVO</label
+      >
+    </div>
   </div>
+
   <div class="buscar">
     <button
       type="submit"

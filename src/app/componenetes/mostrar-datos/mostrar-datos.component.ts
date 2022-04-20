@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente.model';
 import { DatosService } from 'src/app/services/datos.service';
@@ -14,13 +15,19 @@ export class MostrarDatosComponent implements OnInit {
   endItem = 15;
   currentPage: number = 1;
   numero_elementos: number = 0;
+
+
+  idCliente:string='';
+
+
   constructor(public miServ: DatosService) {
 
     miServ.getCliente({}).subscribe(
       (data) => {
         console.log(data);
         this.miServ.clientes = data.data;
-        this.ordenarPorId()
+        this.ordenarPorId();
+        this.datoSeleccionado=miServ.clientes[0]
       },
       (error) => { alert("Los datos no han podido cargarse"); }
 
@@ -70,6 +77,16 @@ export class MostrarDatosComponent implements OnInit {
     this.numero_elementos = items;
     setTimeout(() => this.currentPage = pag, 100)
   }
+  limpiar(){
+    this.datoSeleccionado={}
+  }
+  crear(){
+ 
+  }
+  modificar(){
+    
+  }
+
 
 
 }
