@@ -6,99 +6,135 @@
       </div>
 
       <div class="seccion">
-        <input
-          type="text"
-          class="form-control id-cliente"
-          placeholder="{{ datoSeleccionado.idcliente }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
+        <div>
+          <label class="label">Id Cliente:</label>
+          <input
+            type="text"
+            class="form-control id-cliente"
+            placeholder="{{ datoSeleccionado.idcliente }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div>
+          <label class="label">Numero:</label>
+          <input
+            type="text"
+            class="form-control numero"
+            placeholder="{{ datoSeleccionado.numero }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div>
+          <label for="">Alias</label>
+          <input
+            type="text"
+            class="form-control alias"
+            placeholder="{{ datoSeleccionado.alias }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div>
+          <label for=""> Nombre:</label>
 
-        <input
-          type="text"
-          class="form-control numero"
-          placeholder="{{ datoSeleccionado.numero }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
-        <input
-          type="text"
-          class="form-control alias"
-          placeholder="{{ datoSeleccionado.alias }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
-        <input
-          type="text"
-          class="form-control nombre"
-          placeholder="{{ datoSeleccionado.nombre }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
+          <input
+            type="text"
+            class="form-control nombre"
+            placeholder="{{ datoSeleccionado.nombre }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
       </div>
       <div class="seccion">
-        <input
-          type="text"
-          class="form-control email"
-          placeholder="{{ datoSeleccionado.email }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
+        <div>
+          <label for="">Email</label>
 
-        <input
-          type="text"
-          class="form-control poblacion"
-          placeholder="{{ datoSeleccionado.poblacion }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
+          <input
+            type="text"
+            class="form-control email"
+            placeholder="{{ datoSeleccionado.email }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div>
+          <label for="">Direccion:</label>
+
+          <input
+            type="text"
+            class="form-control direccion"
+            placeholder="{{ datoSeleccionado.direccion }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
       </div>
       <div class="seccion">
-        <input
-          type="text"
-          class="form-control documento"
-          placeholder="{{ datoSeleccionado.documento }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
-        <input
-          type="text"
-          class="form-control direccion"
-          placeholder="{{ datoSeleccionado.direccion }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
+        <div>
+          <label for="">Documento:</label>
 
-        <input
-          type="text"
-          class="form-control raz-social"
-          placeholder="{{ datoSeleccionado.razon_social }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
-        <input
-          type="text"
-          class="form-control provincia"
-          placeholder="{{ datoSeleccionado.provincia }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
+          <input
+            type="text"
+            class="form-control documento"
+            placeholder="{{ datoSeleccionado.documento }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        
+        <div>
+          <label for="">Razón Social:</label>
+
+          <input
+            type="text"
+            class="form-control raz-social"
+            placeholder="{{ datoSeleccionado.razon_social }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div>
+          <label for="">Provincia:</label>
+
+          <input
+            type="text"
+            class="form-control provincia"
+            placeholder="{{ datoSeleccionado.provincia }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div>
+          <label for="">Codigo Postal:</label>
+
+          <input
+            type="text"
+            class="form-control cp"
+            placeholder="{{ datoSeleccionado.cp }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
       </div>
       <div class="seccion">
-        <input
-          type="text"
-          class="form-control cp"
-          placeholder="{{ datoSeleccionado.cp }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
-        <input
-          type="text"
-          class="form-control localidad"
-          placeholder="{{ datoSeleccionado.localidad }}"
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
+        
+        <div>
+          <label for="">Localidad:</label>
+
+          <input
+            type="text"
+            class="form-control localidad"
+            placeholder="{{ datoSeleccionado.localidad }}"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div>
+          <label for="">Telefono:</label>
+        
         <input
           type="text"
           class="form-control telefono"
@@ -106,13 +142,18 @@
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
+      </div>
+      <div>
+        <label for="">Comercial:</label>
+        
         <input
           type="text"
           class="form-control comercial"
           placeholder="{{ datoSeleccionado.comercial }}"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-        >
+        />
+      </div>
       </div>
     </div>
     <div class="contenedor-datos">
@@ -127,7 +168,7 @@
       ></textarea>
       <div class="botones">
         <button type="button" class="btn btn-success">Crear  👤</button>
-        <button type="button" class="btn btn-warning">Modificar  🖌 </button>
+        <button type="button" class="btn btn-warning">Modificar  🖌</button>
         <button type="button" class="btn btn-danger">Borrar  🗑</button>
       </div>
     </div>
@@ -151,9 +192,15 @@
         </thead>
         <tbody id="cuerpo_tabla">
           <tr
-            *ngFor="let item of miServ.clientes |slice:(currentPage-1)*numero_elementos: currentPage*numero_elementos ; let x = index"
+            *ngFor="
+              let item of miServ.clientes
+                | slice
+                  : (currentPage - 1) * numero_elementos
+                  : currentPage * numero_elementos;
+              let x = index
+            "
             class="clientes-api"
-            (click)="mostrarSeleccionado(x)"
+            (click)="mostrarSeleccionado(item)"
           >
             <td class="centro">{{ item.numero }}</td>
             <td class="text-truncate">{{ item.alias }}</td>
@@ -168,7 +215,13 @@
       </table>
     </div>
     <div class="paginacion">
-      <pagination [totalItems]="miServ.clientes.length" [itemsPerPage]=numero_elementos [maxSize]="7" [(ngModel)]="currentPage" [rotate]="true"></pagination>
+      <pagination
+        [totalItems]="miServ.clientes.length"
+        [itemsPerPage]="numero_elementos"
+        [maxSize]="7"
+        [(ngModel)]="currentPage"
+        [rotate]="true"
+      ></pagination>
     </div>
   </div>
 </div>
