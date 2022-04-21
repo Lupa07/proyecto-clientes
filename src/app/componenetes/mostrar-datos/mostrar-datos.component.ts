@@ -15,10 +15,8 @@ export class MostrarDatosComponent implements OnInit {
   endItem = 15;
   currentPage: number = 1;
   numero_elementos: number = 0;
-
-
-  idCliente:string='';
-  status: string='';
+  idCliente: string = '';
+  status: string = '';
 
 
   constructor(public miServ: DatosService) {
@@ -28,46 +26,44 @@ export class MostrarDatosComponent implements OnInit {
         console.log(data);
         this.miServ.clientes = data.data;
         this.ordenarPorId();
-        this.datoSeleccionado=miServ.clientes[0]
+        this.datoSeleccionado = miServ.clientes[0]
       },
       (error) => { alert("Los datos no han podido cargarse"); }
 
     )
-    
 
-
-    
   }
-  eliminar(){
-    let usuarioAborrar={
-      id : this.datoSeleccionado.idcliente
-   }
+  eliminar() {
+    let usuarioAborrar = {
+      id: this.datoSeleccionado.idcliente
+    }
     console.log(this.datoSeleccionado.idcliente)
-    this.miServ.deleteCliente(usuarioAborrar).subscribe( 
-    (data) => {this.recargarDatos()},
-    (error) => {alert(error.mensaje);
-            }
+    this.miServ.deleteCliente(usuarioAborrar).subscribe(
+      (data) => { this.recargarDatos() },
+      (error) => {
+        alert(error.mensaje);
+      }
     )
 
-    
+
   }
 
-  recargarDatos(){
-   let filtros = {
+  recargarDatos() {
+    let filtros = {
       alias: '',
       activo: '',
       provincia: '',
       documento: '',
       codigo: ''
-  }
+    }
     this.miServ.getCliente(filtros).subscribe(
       (data) => {
         console.log(data);
-        
+
         this.miServ.clientes = data.data;
-       
+
         this.ordenarPorId();
-        this.datoSeleccionado=this.miServ.clientes[0]
+        this.datoSeleccionado = this.miServ.clientes[0]
       },
       (error) => { alert("Los datos no han podido cargarse"); }
 
@@ -88,15 +84,15 @@ export class MostrarDatosComponent implements OnInit {
   }
   mostrarSeleccionado(item: any) {
     this.datoSeleccionado = item
-     console.log(this.datoSeleccionado);
+    console.log(this.datoSeleccionado);
   }
-  
+
 
   ngOnInit(): void {
-    
+
     this.totalItems = this.miServ.clientes.length
     this.recalcularFilas();
-    
+
   }
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -116,16 +112,16 @@ export class MostrarDatosComponent implements OnInit {
     this.numero_elementos = items;
     setTimeout(() => this.currentPage = pag, 100)
   }
-  limpiar(){
-    this.datoSeleccionado={}
+  limpiar() {
+    this.datoSeleccionado = {}
   }
-  crear(){
- 
+  crear() {
+
   }
-  modificar(){
-    
+  modificar() {
+
   }
-  
+
 
 
 
