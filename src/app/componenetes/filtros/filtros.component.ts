@@ -24,25 +24,25 @@ export class FiltrosComponent implements OnInit {
 
 
   buscar() {
-    
+
     let filtro = {
       codigo: this.numCliente,
       alias: this.alias,
       provincia: this.provincia,
       documento: this.documento,
-      activo: this.activoB ? 1:0
+      activo: this.activoB ? 1 : 0
 
     }
 
     this.miServ.getCliente(filtro).subscribe(
-      (data) => { console.log(data); this.miServ.clientes = data.data;this.orden(); },
+      (data) => { console.log(data); this.miServ.clientes = data.data; this.orden(); },
       (error) => { alert("Los datos no han podido cargarse"); }
     )
-    
+
   }
 
-  orden(){
-    this.miServ.clientes.sort(function(a:Cliente, b:Cliente) {
+  orden() {
+    this.miServ.clientes.sort(function (a: Cliente, b: Cliente) {
       if (a.alias > b.alias) {
         return 1;
       }
@@ -52,8 +52,8 @@ export class FiltrosComponent implements OnInit {
       return 0;
     });
   }
-  ordenarPorId(){
-    this.miServ.clientes.sort(function(a,b){
+  ordenarPorId() {
+    this.miServ.clientes.sort(function (a, b) {
       return a.idcliente + b.idcliente
     })
   }

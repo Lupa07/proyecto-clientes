@@ -10,23 +10,23 @@ export class DatosService {
     private url: string = 'https://www.azurglobal.es/apiPracticas/clientes/';
     private cabecera: any = {};
     private nombre: string = 'JOAQUIN';
-    private fecha:Date = new Date (Date.now());
+    private fecha: Date = new Date(Date.now());
 
 
 
 
     constructor(private http: HttpClient) {
-        
-        let dia = this.fecha.getDate() < 9 ? '0'+this.fecha.getDate() : this.fecha.getDate();
-        let mes = this.fecha.getMonth() < 9 ? '0'+(this.fecha.getMonth()+1) : this.fecha.getMonth()+1;
+
+        let dia = this.fecha.getDate() < 9 ? '0' + this.fecha.getDate() : this.fecha.getDate();
+        let mes = this.fecha.getMonth() < 9 ? '0' + (this.fecha.getMonth() + 1) : this.fecha.getMonth() + 1;
         let year = this.fecha.getFullYear();
-        let cadenalista = this.nombre+year+mes+dia;
+        let cadenalista = this.nombre + year + mes + dia;
         let token = CryptoJS.SHA384(cadenalista).toString();
 
         this.cabecera = { 'X-Auth': token }
     }
-    
-    clientes:Cliente[]=[];
+
+    clientes: Cliente[] = [];
     filtros = {
         alias: '',
         activo: '',
@@ -36,13 +36,18 @@ export class DatosService {
     }
 
     getCliente(parametros: any): Observable<any> {
-        
+
         return this.http.get<any>('https://www.azurglobal.es/apiPracticas/clientes/', { headers: this.cabecera, params: parametros });
     }
 
-    
 
-    
-    
+
+    deleteCliente(parametros: any): Observable<any> {
+
+        return this.http.delete<any>('https://www.azurglobal.es/apiPracticas/clientes/', { headers: this.cabecera, params: parametros });
+    }
+
+
+
 
 }

@@ -18,6 +18,7 @@ export class MostrarDatosComponent implements OnInit {
 
 
   idCliente:string='';
+  status: string='';
 
 
   constructor(public miServ: DatosService) {
@@ -32,7 +33,45 @@ export class MostrarDatosComponent implements OnInit {
       (error) => { alert("Los datos no han podido cargarse"); }
 
     )
+    
 
+
+    
+  }
+  eliminar(){
+    let usuarioAborrar={
+      id : this.datoSeleccionado.idcliente
+   }
+    console.log(this.datoSeleccionado.idcliente)
+    this.miServ.deleteCliente(usuarioAborrar).subscribe( 
+    (data) => {this.recargarDatos()},
+    (error) => {alert(error.mensaje);
+            }
+    )
+
+    
+  }
+
+  recargarDatos(){
+   let filtros = {
+      alias: '',
+      activo: '',
+      provincia: '',
+      documento: '',
+      codigo: ''
+  }
+    this.miServ.getCliente(filtros).subscribe(
+      (data) => {
+        console.log(data);
+        
+        this.miServ.clientes = data.data;
+       
+        this.ordenarPorId();
+        this.datoSeleccionado=this.miServ.clientes[0]
+      },
+      (error) => { alert("Los datos no han podido cargarse"); }
+
+    )
   }
 
   totalItems: number = 0;
@@ -49,7 +88,7 @@ export class MostrarDatosComponent implements OnInit {
   }
   mostrarSeleccionado(item: any) {
     this.datoSeleccionado = item
-    // console.log(this.datoSeleccionado);
+     console.log(this.datoSeleccionado);
   }
   
 
@@ -86,7 +125,10 @@ export class MostrarDatosComponent implements OnInit {
   modificar(){
     
   }
+  
 
 
 
 }
+
+
