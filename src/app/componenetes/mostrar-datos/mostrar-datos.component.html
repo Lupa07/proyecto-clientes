@@ -12,9 +12,9 @@
           <input
             type="text"
             class="form-control numero"
-            value="{{ datoSeleccionado.numero }}"
+           
             placeholder="Numero Cliente"
-            [(ngModel)]="numCliente"
+            [(ngModel)]="datoSeleccionado.numero"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
           />
@@ -108,8 +108,9 @@
           <input
             type="text"
             class="form-control cp"
-            [(ngModel)]="cp"
-            value="{{ datoSeleccionado.cp }}"
+            [(ngModel)]="datoSeleccionado.cp"
+            
+            
             placeholder="Codigo Postal"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
@@ -164,8 +165,9 @@
               type="checkbox"
               
               [ngModel]="datoSeleccionado.activo==1"
+              (ngModel)="activob"
               id="flexSwitchCheckChecked"
-              checked
+              
               
             />
             

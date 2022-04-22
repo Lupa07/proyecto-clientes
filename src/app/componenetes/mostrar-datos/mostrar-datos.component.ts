@@ -1,4 +1,5 @@
 import { ThisReceiver } from '@angular/compiler';
+import { LEADING_TRIVIA_CHARS } from '@angular/compiler/src/render3/view/template';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente.model';
 import { DatosService } from 'src/app/services/datos.service';
@@ -15,7 +16,7 @@ export class MostrarDatosComponent implements OnInit {
   endItem = 15;
   currentPage: number = 1;
   numero_elementos: number = 0;
- 
+
   numCliente: string = '';
   alias: string = '';
   nombre: string = ''
@@ -26,10 +27,10 @@ export class MostrarDatosComponent implements OnInit {
   provincia: string = '';
   cp: string = '';
   localidad: string = '';
-  telefono: string = '';
+  telefono: number = 0;
   comercial: string = '';
   notas: string = '';
-  activob: boolean = false;
+  activob: boolean = true;
 
   status: string = '';
 
@@ -41,7 +42,8 @@ export class MostrarDatosComponent implements OnInit {
         console.log(data);
         this.miServ.clientes = data.data;
         this.ordenarPorId();
-        this.datoSeleccionado = miServ.clientes[0]
+        
+        this.datoSeleccionado = Object.assign(Cliente,miServ.clientes[0])
       },
       (error) => { alert("Los datos no han podido cargarse"); }
 
@@ -63,32 +65,33 @@ export class MostrarDatosComponent implements OnInit {
 
   }
   modificar() {
+    
     let datosInput = {
+      idcliente: this.datoSeleccionado.idcliente,
       
-      numCliente: this.numCliente,
       alias: this.alias,
       nombre: this.nombre,
       email: this.email,
       direccion: this.direccion,
       documento: this.documento,
-      razonSocial: this.razonSocial,
+      razon_social: this.razonSocial,
       provincia: this.provincia,
-      cp: this.cp,
+      codigo_postal: this.datoSeleccionado.cp,
       localidad: this.localidad,
       telefono: this.telefono,
       comercial: this.comercial,
-      notas: this.nombre,
+      notas: this.notas,
       activo: this.activob
     }
-    this.datoSeleccionado = datosInput    //le tengo que pasar no se si el usuario modificado o datos input
-    this.miServ.modificarCliente(this.datoSeleccionado).subscribe(
+
+    this.miServ.modificarCliente(datosInput).subscribe(
       (data) => { this.recargarDatos() },
       (error) => { alert(error.mensaje) }
     )
   }
   crear() {
     let datosInput = {
-     
+
       numero: this.numCliente,
       alias: this.alias,
       nombre: this.nombre,
@@ -104,10 +107,10 @@ export class MostrarDatosComponent implements OnInit {
       notas: this.notas,
       activo: this.activob ? 1 : 0
     }
+    console.log(this.cp, "codigo postal del input")
+    console.log(datosInput.codigo_postal, "codigo postal de datosInput")
 
-    let nuevoCliente: Cliente = new Cliente(datosInput)
-    console.log(nuevoCliente.idcliente)
-    this.miServ.crearUsuario(nuevoCliente).subscribe(
+    this.miServ.crearUsuario(datosInput).subscribe(
       (data) => { this.recargarDatos() },
       (error) => { alert(error.mensaje) }
     )
@@ -149,9 +152,10 @@ export class MostrarDatosComponent implements OnInit {
       return 0;
     });
   }
-  mostrarSeleccionado(item: any) {
-    this.datoSeleccionado = item
+  mostrarSeleccionado(item: Cliente) {
+    this.datoSeleccionado = Object.assign(Cliente,item)
     console.log(this.datoSeleccionado);
+
   }
 
 
@@ -181,6 +185,13 @@ export class MostrarDatosComponent implements OnInit {
   }
   limpiar() {
     this.datoSeleccionado = {}
+  }
+
+  bandera() {
+
+    if (this.activob == true) {
+
+    }
   }
 
 
