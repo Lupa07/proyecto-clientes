@@ -6,18 +6,7 @@
       </div>
 
       <div class="seccion">
-        <div>
-          <label class="label">Id Cliente:</label>
-          <input
-            type="text"
-            class="form-control id-cliente"
-            value="{{ datoSeleccionado.idcliente }}"
-            placeholder="Id Cliente"
-            [(ngModel)]="idCliente"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
-          />
-        </div>
+        
         <div>
           <label class="label">Numero:</label>
           <input
@@ -25,6 +14,7 @@
             class="form-control numero"
             value="{{ datoSeleccionado.numero }}"
             placeholder="Numero Cliente"
+            [(ngModel)]="numCliente"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
           />
@@ -35,6 +25,7 @@
             type="text"
             class="form-control alias"
             value="{{ datoSeleccionado.alias }}"
+            [(ngModel)]="alias"
             placeholder="Alias"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
@@ -46,6 +37,7 @@
           <input
             type="text"
             class="form-control nombre"
+            [(ngModel)]="nombre"
             value="{{ datoSeleccionado.nombre }}"
             placeholder="Nombre"
             aria-label="Recipient's username"
@@ -60,6 +52,7 @@
           <input
             type="text"
             class="form-control email"
+            [(ngModel)]="email"
             value="{{ datoSeleccionado.email }}"
             placeholder="Email"
             aria-label="Recipient's username"
@@ -72,6 +65,7 @@
           <input
             type="text"
             class="form-control direccion"
+            [(ngModel)]="direccion"
             value="{{ datoSeleccionado.direccion }}"
             placeholder="Direccion"
             aria-label="Recipient's username"
@@ -80,12 +74,13 @@
         </div>
       </div>
       <div class="seccion">
-        <div>
+        <div class="cont-documento">
           <label for="">Documento:</label>
 
           <input
             type="text"
             class="form-control documento"
+            [(ngModel)]="documento"
             value="{{ datoSeleccionado.documento }}"
             placeholder="Documento"
             aria-label="Recipient's username"
@@ -93,24 +88,14 @@
           />
         </div>
 
-        <div class="cont-raz-social">
-          <label  for="">Razón Social:</label>
-
-          <input
-            type="text"
-            class="form-control raz-social"
-            value="{{ datoSeleccionado.razon_social }}"
-            placeholder="Razón Social"
-            aria-label="Recipient's username"
-            aria-describedby="basic-addon2"
-          />
-        </div>
-        <div>
+        
+        <div class="cont-provincia">
           <label for="">Provincia:</label>
 
           <input
             type="text"
             class="form-control provincia"
+            [(ngModel)]="provincia"
             value="{{ datoSeleccionado.provincia }}"
             placeholder="Provincia"
             aria-label="Recipient's username"
@@ -123,6 +108,7 @@
           <input
             type="text"
             class="form-control cp"
+            [(ngModel)]="cp"
             value="{{ datoSeleccionado.cp }}"
             placeholder="Codigo Postal"
             aria-label="Recipient's username"
@@ -131,14 +117,15 @@
         </div>
       </div>
       <div class="seccion">
-        <div class="cont-localidad">
-          <label for="">Localidad:</label>
+        <div class="cont-raz-social">
+          <label  for="">Razón Social:</label>
 
           <input
             type="text"
-            class="form-control localidad"
-            value="{{ datoSeleccionado.localidad }}"
-            placeholder="Localidad"
+            class="form-control raz-social"
+            [(ngModel)]="razonSocial"
+            value="{{ datoSeleccionado.razon_social }}"
+            placeholder="Razón Social"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
           />
@@ -149,6 +136,7 @@
           <input
             type="text"
             class="form-control telefono"
+            [(ngModel)]="telefono"
             value="{{ datoSeleccionado.telefono }}"
             placeholder="Telefono"
             aria-label="Recipient's username"
@@ -161,6 +149,7 @@
           <input
             type="text"
             class="form-control comercial"
+            [(ngModel)]="comercial"
             value="{{ datoSeleccionado.comercial }}"
             placeholder="Comercial"
             aria-label="Recipient's username"
@@ -171,16 +160,15 @@
           <label for="cliente">Activo:</label>
           <div class="form-check form-switch check">
             <input
-              class="form-check-input"
+              class="form-check-input "
               type="checkbox"
+              
               [ngModel]="datoSeleccionado.activo==1"
               id="flexSwitchCheckChecked"
               checked
               
             />
-            <label class="form-check-label" for="flexSwitchCheckChecked"
-              >ACTIVO</label
-            >
+            
           </div>
         </div>
         <div>
@@ -200,6 +188,7 @@
       <textarea
         class="form-control notas"
         placeholder="Notas"
+        [(ngModel)]="notas"
         value="{{ datoSeleccionado.notas }}"
         aria-label="Recipient's username"
         aria-describedby="basic-addon2"

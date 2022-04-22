@@ -8,7 +8,7 @@ export class Cliente{
     public alias:string;
     public razon_social:string;
     public direccion:string;
-    public poblacion:string;
+    
     public provincia:string;
     public telefono:string;
     public comercial:string;
@@ -27,7 +27,7 @@ export class Cliente{
         this.alias=json.alias??'';
         this.razon_social=json.razon_social??'';
         this.direccion=json.direccion??'';
-        this.poblacion=json.poblacion??'';
+        
         this.provincia=json.provincia??'';
         this.telefono=json.telefono??'';
         this.comercial=json.comercial??'';

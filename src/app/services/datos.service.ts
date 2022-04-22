@@ -48,6 +48,17 @@ export class DatosService {
     }
 
 
+    modificarCliente(parametros: any): Observable<any> {
+
+        return this.http.put<any>('https://www.azurglobal.es/apiPracticas/clientes/', { headers: this.cabecera, params: parametros });
+    }
+
+    crearUsuario(nuevoUsuario:any): Observable<any> {
+
+        return this.http.post<any>(this.url, nuevoUsuario, { headers: this.cabecera })
+    }
+
+
 
 
 }

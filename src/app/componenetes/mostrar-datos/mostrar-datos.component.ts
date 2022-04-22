@@ -15,7 +15,22 @@ export class MostrarDatosComponent implements OnInit {
   endItem = 15;
   currentPage: number = 1;
   numero_elementos: number = 0;
-  idCliente: string = '';
+ 
+  numCliente: string = '';
+  alias: string = '';
+  nombre: string = ''
+  email: string = '';
+  direccion: string = ''
+  documento: string = '';
+  razonSocial: string = '';
+  provincia: string = '';
+  cp: string = '';
+  localidad: string = '';
+  telefono: string = '';
+  comercial: string = '';
+  notas: string = '';
+  activob: boolean = false;
+
   status: string = '';
 
 
@@ -43,6 +58,58 @@ export class MostrarDatosComponent implements OnInit {
       (error) => {
         alert(error.mensaje);
       }
+    )
+
+
+  }
+  modificar() {
+    let datosInput = {
+      
+      numCliente: this.numCliente,
+      alias: this.alias,
+      nombre: this.nombre,
+      email: this.email,
+      direccion: this.direccion,
+      documento: this.documento,
+      razonSocial: this.razonSocial,
+      provincia: this.provincia,
+      cp: this.cp,
+      localidad: this.localidad,
+      telefono: this.telefono,
+      comercial: this.comercial,
+      notas: this.nombre,
+      activo: this.activob
+    }
+    this.datoSeleccionado = datosInput    //le tengo que pasar no se si el usuario modificado o datos input
+    this.miServ.modificarCliente(this.datoSeleccionado).subscribe(
+      (data) => { this.recargarDatos() },
+      (error) => { alert(error.mensaje) }
+    )
+  }
+  crear() {
+    let datosInput = {
+     
+      numero: this.numCliente,
+      alias: this.alias,
+      nombre: this.nombre,
+      email: this.email,
+      direccion: this.direccion,
+      documento: this.documento,
+      razon_social: this.razonSocial,
+      provincia: this.provincia,
+      codigo_postal: this.cp,
+      localidad: this.localidad,
+      telefono: this.telefono,
+      comercial: this.comercial,
+      notas: this.notas,
+      activo: this.activob ? 1 : 0
+    }
+
+    let nuevoCliente: Cliente = new Cliente(datosInput)
+    console.log(nuevoCliente.idcliente)
+    this.miServ.crearUsuario(nuevoCliente).subscribe(
+      (data) => { this.recargarDatos() },
+      (error) => { alert(error.mensaje) }
     )
 
 
@@ -115,12 +182,8 @@ export class MostrarDatosComponent implements OnInit {
   limpiar() {
     this.datoSeleccionado = {}
   }
-  crear() {
 
-  }
-  modificar() {
 
-  }
 
 
 
