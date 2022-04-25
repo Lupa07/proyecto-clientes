@@ -17,19 +17,19 @@ export class MostrarDatosComponent implements OnInit {
   currentPage: number = 1;
   numero_elementos: number = 0;
 
-  numCliente: string = '';
-  alias: string = '';
-  nombre: string = ''
-  email: string = '';
-  direccion: string = ''
-  documento: string = '';
-  razonSocial: string = '';
-  provincia: string = '';
-  cp: string = '';
-  localidad: string = '';
-  telefono: number = 0;
-  comercial: string = '';
-  notas: string = '';
+  numCliente: string = this.datoSeleccionado.numero;
+  alias: string = this.datoSeleccionado.alias;
+  nombre: string = this.datoSeleccionado.nombre;
+  email: string = this.datoSeleccionado.email;
+  direccion: string = this.datoSeleccionado.direccion;
+  documento: string = this.datoSeleccionado.documento;
+  razonSocial: string = this.datoSeleccionado.razon_social;
+  provincia: string = this.datoSeleccionado.provincia;
+  cp: string = this.datoSeleccionado.codigo_postal;
+  localidad: string = this.datoSeleccionado.localidad;
+  telefono: number = this.datoSeleccionado.telefono;
+  comercial: string = this.datoSeleccionado.comercial;
+  notas: string = this.datoSeleccionado.notas;
   activob: boolean = true;
 
   status: string = '';
@@ -42,8 +42,8 @@ export class MostrarDatosComponent implements OnInit {
         console.log(data);
         this.miServ.clientes = data.data;
         this.ordenarPorId();
-        
-        this.datoSeleccionado = Object.assign(Cliente,miServ.clientes[0])
+
+        this.datoSeleccionado = miServ.clientes[0]
       },
       (error) => { alert("Los datos no han podido cargarse"); }
 
@@ -66,9 +66,10 @@ export class MostrarDatosComponent implements OnInit {
   }
   modificar() {
     
+    
     let datosInput = {
       idcliente: this.datoSeleccionado.idcliente,
-      
+
       alias: this.alias,
       nombre: this.nombre,
       email: this.email,
@@ -83,12 +84,30 @@ export class MostrarDatosComponent implements OnInit {
       notas: this.notas,
       activo: this.activob
     }
-      console.log("datos seleccionado",this.datoSeleccionado.alias)
-      console.log("datosInput: ", datosInput.alias)
+    console.log(datosInput)
+   
     this.miServ.modificarCliente(datosInput).subscribe(
-      (data) => { this.recargarDatos() },
-      (error) => { alert(error.mensaje),alert("no ha funcionado") }
+      (data) => {this.reiniciarValores(), this.recargarDatos()  },
+      (error) => { alert("no ha funcionado") }
     )
+    
+  }
+
+  reiniciarValores(){
+    this.numCliente = this.datoSeleccionado.numero;
+    this.alias = this.datoSeleccionado.alias;
+    this.nombre = this.datoSeleccionado.nombre;
+    this.email = this.datoSeleccionado.email;
+    this.direccion = this.datoSeleccionado.direccion;
+    this.documento = this.datoSeleccionado.documento;
+    this.razonSocial = this.datoSeleccionado.razon_social;
+    this.provincia = this.datoSeleccionado.provincia;
+    this.cp = this.datoSeleccionado.codigo_postal;
+    this.localidad = this.datoSeleccionado.localidad;
+    this.telefono = this.datoSeleccionado.telefono;
+    this.comercial = this.datoSeleccionado.comercial;
+    this.notas = this.datoSeleccionado.notas;
+    this.activob = true;
   }
   crear() {
     let datosInput = {
@@ -112,7 +131,7 @@ export class MostrarDatosComponent implements OnInit {
     console.log(datosInput.codigo_postal, "codigo postal de datosInput")
 
     this.miServ.crearUsuario(datosInput).subscribe(
-      (data) => {console.log(datosInput), this.recargarDatos() },
+      (data) => { this.recargarDatos() },
       (error) => { alert(error.mensaje) }
     )
 
