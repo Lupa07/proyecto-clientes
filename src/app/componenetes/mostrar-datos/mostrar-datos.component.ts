@@ -76,17 +76,18 @@ export class MostrarDatosComponent implements OnInit {
       documento: this.documento,
       razon_social: this.razonSocial,
       provincia: this.provincia,
-      codigo_postal: this.datoSeleccionado.cp,
+      codigo_postal: this.cp,
       localidad: this.localidad,
       telefono: this.telefono,
       comercial: this.comercial,
       notas: this.notas,
       activo: this.activob
     }
-
+      console.log("datos seleccionado",this.datoSeleccionado.alias)
+      console.log("datosInput: ", datosInput.alias)
     this.miServ.modificarCliente(datosInput).subscribe(
       (data) => { this.recargarDatos() },
-      (error) => { alert(error.mensaje) }
+      (error) => { alert(error.mensaje),alert("no ha funcionado") }
     )
   }
   crear() {
@@ -111,7 +112,7 @@ export class MostrarDatosComponent implements OnInit {
     console.log(datosInput.codigo_postal, "codigo postal de datosInput")
 
     this.miServ.crearUsuario(datosInput).subscribe(
-      (data) => { this.recargarDatos() },
+      (data) => {console.log(datosInput), this.recargarDatos() },
       (error) => { alert(error.mensaje) }
     )
 
@@ -153,7 +154,7 @@ export class MostrarDatosComponent implements OnInit {
     });
   }
   mostrarSeleccionado(item: Cliente) {
-    this.datoSeleccionado = Object.assign(Cliente,item)
+    this.datoSeleccionado = item
     console.log(this.datoSeleccionado);
 
   }

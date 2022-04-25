@@ -6,15 +6,14 @@
       </div>
 
       <div class="seccion">
-        
         <div>
           <label class="label">Numero:</label>
           <input
             type="text"
             class="form-control numero"
-           
             placeholder="Numero Cliente"
-            [(ngModel)]="datoSeleccionado.numero"
+            [(ngModel)]="numCliente"
+            value="{{ datoSeleccionado.numero }}"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
           />
@@ -88,7 +87,6 @@
           />
         </div>
 
-        
         <div class="cont-provincia">
           <label for="">Provincia:</label>
 
@@ -108,9 +106,8 @@
           <input
             type="text"
             class="form-control cp"
-            [(ngModel)]="datoSeleccionado.cp"
-            
-            
+            [(ngModel)]="cp"
+            value="{{ datoSeleccionado.cp }}"
             placeholder="Codigo Postal"
             aria-label="Recipient's username"
             aria-describedby="basic-addon2"
@@ -119,7 +116,7 @@
       </div>
       <div class="seccion">
         <div class="cont-raz-social">
-          <label  for="">Razón Social:</label>
+          <label for="">Razón Social:</label>
 
           <input
             type="text"
@@ -157,26 +154,22 @@
             aria-describedby="basic-addon2"
           />
         </div>
-        <div >
+        <div>
           <label for="cliente">Activo:</label>
           <div class="form-check form-switch check">
             <input
-              class="form-check-input "
+              class="form-check-input"
               type="checkbox"
-              
-              [ngModel]="datoSeleccionado.activo==1"
-              (ngModel)="activob"
+              [ngModel]="datoSeleccionado.activo == 1"
+              (ngModel)="(activob)"
               id="flexSwitchCheckChecked"
-              
-              
             />
-            
           </div>
         </div>
         <div>
           <label for=""></label>
           <div class="limpiar">
-            <button type="button" class="btn " (click)="limpiar()">
+            <button type="button" class="btn" (click)="limpiar()">
               Limpiar
             </button>
           </div>
@@ -202,7 +195,9 @@
         <button type="button" class="btn btn-warning" (click)="modificar()">
           Modificar  🖌
         </button>
-        <button type="button" class="btn btn-danger" (click)="eliminar()">Borrar  🗑</button>
+        <button type="button" class="btn btn-danger" (click)="eliminar()">
+          Borrar  🗑
+        </button>
       </div>
     </div>
   </div>
