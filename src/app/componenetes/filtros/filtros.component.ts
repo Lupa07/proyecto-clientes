@@ -57,4 +57,37 @@ export class FiltrosComponent implements OnInit {
       return a.idcliente + b.idcliente
     })
   }
+
+  recargarDatos() {
+    let filtros = {
+      alias: '',
+      activo: '',
+      provincia: '',
+      documento: '',
+      codigo: ''
+    }
+    this.miServ.getCliente(filtros).subscribe(
+      (data) => {
+        console.log(data);
+
+        this.miServ.clientes = data.data;
+
+        this.ordenarPorIds();
+        
+      },
+      (error) => { alert("Los datos no han podido cargarse"); }
+
+    )
+  }
+  ordenarPorIds() {
+    this.miServ.clientes.sort(function (a: Cliente, b: Cliente) {
+      if (a.alias > b.alias) {
+        return 1;
+      }
+      if (a.alias < b.alias) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 }
