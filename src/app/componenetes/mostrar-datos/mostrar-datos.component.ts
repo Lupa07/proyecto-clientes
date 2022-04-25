@@ -84,8 +84,8 @@ export class MostrarDatosComponent implements OnInit {
       notas: this.notas,
       activo: this.activob
     }
-    console.log(datosInput)
-   
+    console.log('cliente modificado')
+   console.log('datos de datosInput',datosInput)
     this.miServ.modificarCliente(datosInput).subscribe(
       (data) => {this.reiniciarValores(), this.recargarDatos()  },
       (error) => { alert("no ha funcionado") }
@@ -127,8 +127,6 @@ export class MostrarDatosComponent implements OnInit {
       notas: this.notas,
       activo: this.activob ? 1 : 0
     }
-    console.log(this.cp, "codigo postal del input")
-    console.log(datosInput.codigo_postal, "codigo postal de datosInput")
 
     this.miServ.crearUsuario(datosInput).subscribe(
       (data) => { this.recargarDatos() },
@@ -173,8 +171,10 @@ export class MostrarDatosComponent implements OnInit {
     });
   }
   mostrarSeleccionado(item: Cliente) {
-    this.datoSeleccionado = item
-    console.log(this.datoSeleccionado);
+
+    this.datoSeleccionado = item;
+    this.reiniciarValores();
+    console.log("cliente seleccionado",this.datoSeleccionado);
 
   }
 
